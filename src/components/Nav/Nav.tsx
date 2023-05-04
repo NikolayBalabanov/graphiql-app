@@ -10,25 +10,25 @@ export default class Nav extends Component {
   public render() {
     return (
       <nav className="">
-        <ul className="list-none flex">
+        <ul className="list-none flex gap-5">
           <NavItem
-            className="mr-3 font-bold text-xl  hover:text-red-400 transition-colors"
-            title="about"
+            className="btn"
+            title="About"
             to="/about"
           />
           <NavItem
-            className="mr-3 font-bold text-xl hover:text-red-400 transition-colors"
+            className="btn"
             title="Editor"
             to="/"
           />
           <NavItem
-            className="mr-3 font-bold text-xl hover:text-red-400 transition-colors"
-            title="singin"
+            className="btn"
+            title="Sing-in"
             to="/singin"
           />
           <NavItem
-            className="font-bold text-xl hover:text-red-400 transition-colors"
-            title="singout"
+            className="btn"
+            title="Sing-out"
             to="/singout"
           />
         </ul>
