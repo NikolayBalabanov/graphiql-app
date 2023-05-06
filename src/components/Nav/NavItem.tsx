@@ -1,24 +1,19 @@
-import React, { Component } from 'react';
+import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
 
 interface INavItemProps {
   title: string;
   to: string;
   className?: string;
+  handler?: () => void;
 }
 
-export default class NavItem extends Component<INavItemProps> {
-  constructor(props: INavItemProps) {
-    super(props);
-  }
-  render() {
-    const { title, to, className } = this.props;
-    return (
-      <li>
-        <Link className={className} to={to}>
-          {title}
-        </Link>
-      </li>
-    );
-  }
-}
+export const NavItem: FC<INavItemProps> = ({ title, to, className, handler }) => {
+  return (
+    <li>
+      <Link className={className} to={to} onClick={handler}>
+        {title}
+      </Link>
+    </li>
+  );
+};

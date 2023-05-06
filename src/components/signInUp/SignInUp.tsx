@@ -1,6 +1,14 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { Button } from './Button';
+import { useNavigate } from 'react-router-dom';
+import {
+  useAuthState,
+  useCreateUserWithEmailAndPassword,
+  useSignInWithEmailAndPassword,
+} from 'react-firebase-hooks/auth';
+import { auth, registerUser, sendPasswordReset } from '../../firebase';
+import { getErrString } from '../../utils/getErrString';
 
 type FormFields = {
   email: string;
@@ -9,13 +17,35 @@ type FormFields = {
 };
 
 export const SignInUp = () => {
+  const [user] = useAuthState(auth);
+  const [logInWithEmailAndPassword, logUser, logLoading, logError] =
+    useSignInWithEmailAndPassword(auth);
+  const [registerWithEmailAndPassword, regUser, regLoading, regError] =
+    useCreateUserWithEmailAndPassword(auth);
+  const navigate = useNavigate();
   const [isSignUp, setIsSignUp] = useState(false);
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<FormFields>();
-  const onSubmit: SubmitHandler<FormFields> = (data) => console.log(data);
+  const onSubmit: SubmitHandler<FormFields> = (data) => {
+    const { email, password, name } = data;
+    if (isSignUp) {
+      registerWithEmailAndPassword(email, password).then((user) => {
+        if (user) {
+          registerUser(user.user.uid, email, name!);
+        }
+      });
+    } else {
+      logInWithEmailAndPassword(email, password);
+    }
+  };
+  useEffect(() => {
+    if (user) {
+      navigate('/editor');
+    }
+  }, [user, logLoading, regLoading]);
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
@@ -64,6 +94,12 @@ export const SignInUp = () => {
         })}
       />
       {<p className="text-xs text-red-600 mx-2">{errors.password?.message}</p>}
+      {!isSignUp && logError?.code && (
+        <p className="text-xs text-red-600 mx-2">{getErrString(logError.code)}</p>
+      )}
+      {isSignUp && regError?.code && (
+        <p className="text-xs text-red-600 mx-2">{getErrString(regError.code)}</p>
+      )}
       <Button type="submit" text={isSignUp ? 'Sign Up' : 'Sign In'}></Button>
       {!isSignUp ? (
         <p>
@@ -74,6 +110,11 @@ export const SignInUp = () => {
         <p>
           I already have profile
           <Button type="button" text="Sign In" onClick={() => setIsSignUp(false)}></Button>
+          <Button
+            type="button"
+            text="Sign In"
+            onClick={() => sendPasswordReset('nikola.balabanov93@gmail.com')}
+          ></Button>
         </p>
       )}
     </form>
