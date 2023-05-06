@@ -1,7 +1,8 @@
 import React from 'react';
+import { SignInUp } from '../components/signInUp/SignInUp';
 
 function SingIn() {
-  return <div>SingIn</div>;
+  return <div className="flex justify-center h-screen"><SignInUp /></div>;
 }
 
 export default SingIn;
