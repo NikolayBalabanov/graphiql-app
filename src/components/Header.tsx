@@ -4,10 +4,17 @@ import Nav from './Nav/Nav';
 export default class Header extends Component {
   render() {
     return (
-      <div className="h-[50px] flex justify-between px-5 bg-gray-500 items-center text-white">
-        <h1 className="font-bold">RSS-GraphQL</h1>
+      <header className="h-[50px] flex justify-between px-5 bg-BGcolor1 items-center rounded-b-lg">
+        <h1>
+          <a
+            className="hover:text-textColorHover text-textColor duration-500 text-xl font-bold"
+            href="/"
+          >
+            RSS-GraphQL
+          </a>
+        </h1>
         <Nav />
-      </div>
+      </header>
     );
   }
 }
