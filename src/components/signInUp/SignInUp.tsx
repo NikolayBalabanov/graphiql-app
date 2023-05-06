@@ -18,9 +18,8 @@ type FormFields = {
 
 export const SignInUp = () => {
   const [user] = useAuthState(auth);
-  const [logInWithEmailAndPassword, logUser, logLoading, logError] =
-    useSignInWithEmailAndPassword(auth);
-  const [registerWithEmailAndPassword, regUser, regLoading, regError] =
+  const [logInWithEmailAndPassword, , logLoading, logError] = useSignInWithEmailAndPassword(auth);
+  const [registerWithEmailAndPassword, , regLoading, regError] =
     useCreateUserWithEmailAndPassword(auth);
   const navigate = useNavigate();
   const [isSignUp, setIsSignUp] = useState(false);
@@ -45,7 +44,7 @@ export const SignInUp = () => {
     if (user) {
       navigate('/editor');
     }
-  }, [user, logLoading, regLoading]);
+  }, [user, logLoading, regLoading, navigate]);
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
