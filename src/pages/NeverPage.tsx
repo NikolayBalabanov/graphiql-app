@@ -17,7 +17,7 @@ export default class NeverPage extends Component {
               to="/"
               className="border border-blue-500 rounded-sm h-fit bg-slate-200 px-5 py-2 hover:bg-blue-500 transition-colors"
             >
-              Back to movies
+              Back to Main Page
             </Link>
           </div>
         </div>
