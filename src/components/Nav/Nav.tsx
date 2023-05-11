@@ -15,8 +15,8 @@ export default class Nav extends Component {
         <ul className="list-none flex gap-5">
           <NavItem className="btn" title="about" to="/about" />
           <NavItem className="btn" title="editor" to="/" />
-          <NavItem className="btn" title="singIn" to="/singin" />
-          <NavItem className="btn" title="singOut" to="/singout" handler={() => logout()} />
+          <NavItem className="btn" title="signIn" to="/singin" />
+          <NavItem className="btn" title="signOut" to="/singout" handler={() => logout()} />
           <LanguageChange />
         </ul>
       </nav>

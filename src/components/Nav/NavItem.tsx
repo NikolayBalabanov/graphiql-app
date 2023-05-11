@@ -12,11 +12,13 @@ interface INavItemProps {
 }
 
 export const NavItem: FC<INavItemProps> = ({ title, to, className, handler }) => {
+
+  console.log(translations)
+  console.log(`header.${title}`)
   return (
-    <TranslationProvider language='ru' translations={translations.header}>
+    <TranslationProvider translations={translations.header}>
     <li>
       <Link className={className} to={to} onClick={handler}>
-        {/* {title} */}
         <Translation path={title} />
       </Link>
     </li>
