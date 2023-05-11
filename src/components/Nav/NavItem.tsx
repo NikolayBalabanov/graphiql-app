@@ -1,5 +1,8 @@
 import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
+import { TranslationProvider, Translation } from 'i18nano';
+import { translations } from '../../translations';
+
 
 interface INavItemProps {
   title: string;
@@ -10,10 +13,14 @@ interface INavItemProps {
 
 export const NavItem: FC<INavItemProps> = ({ title, to, className, handler }) => {
   return (
+    <TranslationProvider language='ru' translations={translations.header}>
     <li>
       <Link className={className} to={to} onClick={handler}>
-        {title}
+        {/* {title} */}
+        <Translation path={title} />
       </Link>
     </li>
+    </TranslationProvider>
+
   );
 };
