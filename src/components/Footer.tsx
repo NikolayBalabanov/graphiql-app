@@ -1,7 +1,11 @@
 import Logo from '../assets/rs_school.svg';
+import { TranslationProvider, Translation } from 'i18nano';
+import { translations } from '../translations';
+
 
 function Footer() {
   return (
+    <TranslationProvider translations={translations.footer}>
     <div className=" py-4 bg-BGcolor1 md:px-9 px-2 rounded-t-lg">
       <div className="flex justify-between flex-wrap">
         <a className="hover:scale-110 duration-500" href="https://rs.school/js/">
@@ -38,11 +42,12 @@ function Footer() {
         <div className="flex items-center">
           <h3 className="md:text-base text-x text-textColor">
             ©2023
-            <span className="md:inline hidden text-textColor">RS School. All rights reserved.</span>
+            <span className="md:inline hidden text-textColor"><Translation path="rights"/></span>
           </h3>
         </div>
       </div>
     </div>
+    </TranslationProvider >
   );
 }
 

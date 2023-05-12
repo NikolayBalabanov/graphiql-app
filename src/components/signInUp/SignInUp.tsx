@@ -9,6 +9,8 @@ import {
 } from 'react-firebase-hooks/auth';
 import { auth, registerUser, sendPasswordReset } from '../../firebase';
 import { getErrString } from '../../utils/getErrString';
+import { TranslationProvider, Translation } from 'i18nano';
+import { translations } from '../../translations';
 
 type FormFields = {
   email: string;
@@ -46,6 +48,7 @@ export const SignInUp = () => {
     }
   }, [user, logLoading, regLoading, navigate]);
   return (
+    <TranslationProvider translations={translations.signIn}>
     <form
       onSubmit={handleSubmit(onSubmit)}
       className="flex flex-col justify-center self-center px-1 py-6 min-h-fit w-3/5 border rounded-md my-4 font-semibold"
@@ -59,11 +62,11 @@ export const SignInUp = () => {
           className={errors.name ? 'm-2 rounded-md border-red-600' : 'm-2 rounded-md'}
           {...register('name', {
             required: true,
-            pattern: { value: /[A-Z]{1}/, message: 'Your name should start with uppercase letter' },
+            pattern: { value: /[A-Z]{1}/, message: 'name' },
           })}
         />
       )}{' '}
-      {isSignUp && <p className="text-xs text-red-600 mx-2">{errors.name?.message}</p>}
+      {isSignUp && <p className="text-xs text-red-600 mx-2"><Translation path={errors.name?.message || ''}/></p>}
       <input
         type="email"
         id="email"
@@ -73,11 +76,11 @@ export const SignInUp = () => {
           required: true,
           pattern: {
             value: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
-            message: ' Enter valid email',
+            message: 'email',
           },
         })}
       />
-      {<p className="text-xs text-red-600 mx-2">{errors.email?.message}</p>}
+      {<p className="text-xs text-red-600 mx-2"><Translation path={errors.email?.message || ''}/></p>}
       <input
         type="password"
         id="password"
@@ -87,35 +90,36 @@ export const SignInUp = () => {
           required: true,
           pattern: {
             value: /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$/,
-            message:
-              'Your password should contain 1 uppercase letter, 1 lowercase letter, 1 digit, min length 8',
+            message: 'password'
           },
         })}
       />
-      {<p className="text-xs text-red-600 mx-2">{errors.password?.message}</p>}
+      {<p className="text-xs text-red-600 mx-2"><Translation path={errors.password?.message || ''}/></p>}
       {!isSignUp && logError?.code && (
         <p className="text-xs text-red-600 mx-2">{getErrString(logError.code)}</p>
       )}
       {isSignUp && regError?.code && (
         <p className="text-xs text-red-600 mx-2">{getErrString(regError.code)}</p>
       )}
-      <Button type="submit" text={isSignUp ? 'Sign Up' : 'Sign In'}></Button>
+      <Button type="submit" text={isSignUp ? 'signUp' : 'signIn'}></Button>
+
       {!isSignUp ? (
         <p>
-          Not registered yet?
-          <Button type="button" text="Sign up" onClick={() => setIsSignUp(true)}></Button>
+          <Translation path="notRegistered" />
+          <Button type="button" text="signUp" onClick={() => setIsSignUp(true)}></Button>
         </p>
       ) : (
         <p>
-          I already have profile
-          <Button type="button" text="Sign In" onClick={() => setIsSignUp(false)}></Button>
-          <Button
+        <Translation path="registered" />
+          <Button type="button" text="signIn" onClick={() => setIsSignUp(false)}></Button>
+          {/* <Button
             type="button"
-            text="Sign In"
+            text="signIn"
             onClick={() => sendPasswordReset('nikola.balabanov93@gmail.com')}
-          ></Button>
+          ></Button> */}
         </p>
       )}
     </form>
+</TranslationProvider>
   );
 };
