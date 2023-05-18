@@ -49,77 +49,88 @@ export const SignInUp = () => {
   }, [user, logLoading, regLoading, navigate]);
   return (
     <TranslationProvider translations={translations.signIn}>
-    <form
-      onSubmit={handleSubmit(onSubmit)}
-      className="flex flex-col justify-center self-center px-1 py-6 min-h-fit w-3/5 border rounded-md my-4 font-semibold"
-      noValidate
-    >
-      {isSignUp && (
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="flex flex-col justify-center self-center px-1 py-6 min-h-fit w-3/5 border rounded-md my-4 font-semibold"
+        noValidate
+      >
+        {isSignUp && (
+          <input
+            type="text"
+            id="name"
+            placeholder="Ivan"
+            className={errors.name ? 'm-2 rounded-md border-red-600' : 'm-2 rounded-md'}
+            {...register('name', {
+              required: true,
+              pattern: { value: /[A-Z]{1}/, message: 'name' },
+            })}
+          />
+        )}{' '}
+        {isSignUp && (
+          <p className="text-xs text-red-600 mx-2">
+            <Translation path={errors.name?.message || ''} />
+          </p>
+        )}
         <input
-          type="text"
-          id="name"
-          placeholder="Ivan"
-          className={errors.name ? 'm-2 rounded-md border-red-600' : 'm-2 rounded-md'}
-          {...register('name', {
+          type="email"
+          id="email"
+          placeholder="example@ex.com"
+          className={errors.email ? 'm-2 rounded-md border-red-600' : 'm-2 rounded-md'}
+          {...register('email', {
             required: true,
-            pattern: { value: /[A-Z]{1}/, message: 'name' },
+            pattern: {
+              value: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
+              message: 'email',
+            },
           })}
         />
-      )}{' '}
-      {isSignUp && <p className="text-xs text-red-600 mx-2"><Translation path={errors.name?.message || ''}/></p>}
-      <input
-        type="email"
-        id="email"
-        placeholder="example@ex.com"
-        className={errors.email ? 'm-2 rounded-md border-red-600' : 'm-2 rounded-md'}
-        {...register('email', {
-          required: true,
-          pattern: {
-            value: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
-            message: 'email',
-          },
-        })}
-      />
-      {<p className="text-xs text-red-600 mx-2"><Translation path={errors.email?.message || ''}/></p>}
-      <input
-        type="password"
-        id="password"
-        placeholder="Password"
-        className={errors.password ? 'm-2 rounded-md border-red-600' : 'm-2 rounded-md'}
-        {...register('password', {
-          required: true,
-          pattern: {
-            value: /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$/,
-            message: 'password'
-          },
-        })}
-      />
-      {<p className="text-xs text-red-600 mx-2"><Translation path={errors.password?.message || ''}/></p>}
-      {!isSignUp && logError?.code && (
-        <p className="text-xs text-red-600 mx-2">{getErrString(logError.code)}</p>
-      )}
-      {isSignUp && regError?.code && (
-        <p className="text-xs text-red-600 mx-2">{getErrString(regError.code)}</p>
-      )}
-      <Button type="submit" text={isSignUp ? 'signUp' : 'signIn'}></Button>
-
-      {!isSignUp ? (
-        <p>
-          <Translation path="notRegistered" />
-          <Button type="button" text="signUp" onClick={() => setIsSignUp(true)}></Button>
-        </p>
-      ) : (
-        <p>
-        <Translation path="registered" />
-          <Button type="button" text="signIn" onClick={() => setIsSignUp(false)}></Button>
-          {/* <Button
+        {
+          <p className="text-xs text-red-600 mx-2">
+            <Translation path={errors.email?.message || ''} />
+          </p>
+        }
+        <input
+          type="password"
+          id="password"
+          placeholder="Password"
+          className={errors.password ? 'm-2 rounded-md border-red-600' : 'm-2 rounded-md'}
+          {...register('password', {
+            required: true,
+            pattern: {
+              value: /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$/,
+              message: 'password',
+            },
+          })}
+        />
+        {
+          <p className="text-xs text-red-600 mx-2">
+            <Translation path={errors.password?.message || ''} />
+          </p>
+        }
+        {!isSignUp && logError?.code && (
+          <p className="text-xs text-red-600 mx-2">{getErrString(logError.code)}</p>
+        )}
+        {isSignUp && regError?.code && (
+          <p className="text-xs text-red-600 mx-2">{getErrString(regError.code)}</p>
+        )}
+        <Button type="submit" text={isSignUp ? 'signUp' : 'signIn'}></Button>
+        {!isSignUp ? (
+          <p>
+            <Translation path="notRegistered" />
+            <Button type="button" text="signUp" onClick={() => setIsSignUp(true)}></Button>
+          </p>
+        ) : (
+          <p>
+            <Translation path="registered" />
+            <Button type="button" text="signIn" onClick={() => setIsSignUp(false)}></Button>
+            {/* <Button
             type="button"
             text="signIn"
             onClick={() => sendPasswordReset('nikola.balabanov93@gmail.com')}
           ></Button> */}
-        </p>
-      )}
-    </form>
-</TranslationProvider>
+          </p>
+        )}
+      </form>
+    </TranslationProvider>
   );
 };
