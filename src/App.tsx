@@ -7,7 +7,7 @@ import { translations } from './translations';
 export const App = () => {
   return (
     <TranslationProvider language="en" translations={translations.header}>
-      <div className="App min-h-screen flex flex-col bg-BGcolor">
+      <div className="App h-screen flex flex-col bg-BGcolor">
         <Header />
         <main className="flex-auto lg:px-10 lg:py-4 sm:px-4 sm:py-2 p-3 bg-BGcolor">
           <Outlet />

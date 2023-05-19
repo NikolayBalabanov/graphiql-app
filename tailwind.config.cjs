@@ -10,6 +10,7 @@ module.exports = {
         textColor: "#3b492b",
         BGcolor: "#f4f7ee",
         BGcolor1: "#E6EDDA",
+        BGcolor2: "#c3d4a7",
         bgModal: "rgba(20, 19, 19, 0.8);",
       },
     },

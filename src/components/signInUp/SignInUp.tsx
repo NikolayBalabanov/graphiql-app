@@ -97,7 +97,7 @@ export const SignInUp = () => {
           {...register('password', {
             required: true,
             pattern: {
-              value: /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$/,
+              value: /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/,
               message: 'password',
             },
           })}
