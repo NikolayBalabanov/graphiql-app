@@ -40,7 +40,7 @@ function Footer() {
             </li>
           </ul>
           <div className="flex items-center">
-            <h3 className="md:text-base text-x text-textColor">
+            <h3 className="text-xs md:text-base text-textColor">
               ©2023
               <span className="md:inline hidden text-textColor"><Translation path="rights" /></span>
             </h3>

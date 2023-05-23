@@ -20,7 +20,7 @@ export const Editor: FC<IEditor> = ({ getQueryData }) => {
         id="editor"
         cols={30}
         rows={10}
-        className="bg-BGcolor w-4/5 m-6 "
+        className="bg-BGcolor w-full p-2 rounded-2xl border-textColor text-xs md:text-base"
       ></textarea>
       <div className="flex justify-evenly my-4">
         <Headers />

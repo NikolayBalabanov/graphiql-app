@@ -3,6 +3,9 @@ module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
+      fontSize: {
+        sm: ['14px', '1px'],
+      },
       colors: {
         btnBG: "#E6EDDA",
         textColorHover: "#a7bf82",
