@@ -14,7 +14,7 @@ export const Editor: FC<IEditor> = ({ getQueryData }) => {
     getQueryData(req);
   }, [getQueryData]);
   return (
-    <form className="bg-BGcolor w-1/2 rounded-2xl h-full p-2 flex flex-col justify-between">
+    <form className="bg-BGcolor w-1/2 rounded-2xl p-2 flex flex-col">
       <textarea
         name="editor"
         id="editor"
