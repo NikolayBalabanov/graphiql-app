@@ -14,13 +14,13 @@ export const Editor: FC<IEditor> = ({ getQueryData }) => {
     getQueryData(req);
   }, [getQueryData]);
   return (
-    <form className="bg-BGcolor w-1/2 rounded-2xl h-full p-2 flex flex-col justify-between">
+    <form className="bg-BGcolor w-1/2 rounded-2xl p-2 flex flex-col">
       <textarea
         name="editor"
         id="editor"
         cols={30}
         rows={10}
-        className="bg-BGcolor w-4/5 m-6 "
+        className="bg-BGcolor w-full p-2 rounded-2xl border-textColor text-xs md:text-base"
       ></textarea>
       <div className="flex justify-evenly my-4">
         <Headers />

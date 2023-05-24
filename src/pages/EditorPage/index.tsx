@@ -4,7 +4,7 @@ import { SideBar } from './SideBar';
 
 const index = () => {
   return (
-    <div className="flex h-full">
+    <div className="flex gap-3 flex-col md:flex-row">
       <SideBar />
       <Container />
     </div>
