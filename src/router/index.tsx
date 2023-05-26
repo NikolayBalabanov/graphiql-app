@@ -10,7 +10,7 @@ const WelcomePage = lazy(() => import('../pages/WelcomePage'));
 const EditorPage = lazy(() => import('../pages/EditorPage'));
 const NeverPage = lazy(() => import('../pages/NeverPage'));
 
-const suspense = (page: React.ReactNode, fallback = <Loader />) => (
+export const suspense = (page: React.ReactNode, fallback = <Loader />) => (
   <Suspense fallback={fallback}>{page}</Suspense>
 );
 
