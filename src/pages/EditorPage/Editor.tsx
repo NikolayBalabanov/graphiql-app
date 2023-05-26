@@ -1,6 +1,8 @@
+/* eslint-disable prettier/prettier */
 import React, { FC, useEffect } from 'react';
 import { Headers } from './Headers';
 import { Variables } from './Variables';
+import { docQuery } from '../../shared/docQuery';
 
 const req = { query: 'query {characters {    results {   name id     }  }}' };
 type TQuery = { query: string };
