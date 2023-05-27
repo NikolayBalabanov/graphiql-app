@@ -1,4 +1,4 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react';
+import { FetchBaseQueryError, createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react';
 import { TSchema } from '../models/schema';
 
 type TQuery = { query: string };
@@ -10,7 +10,7 @@ export const rootAPI = createApi({
   }),
   tagTypes: ['Data', 'Doc'],
   endpoints: (build) => ({
-    getApiQuery: build.mutation<unknown, TQuery>({
+    getApiQuery: build.mutation<void, TQuery>({
       query: (requestBody) => ({
         url: '',
         method: 'POST',
