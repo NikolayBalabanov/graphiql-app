@@ -1,32 +1,36 @@
-/* eslint-disable prettier/prettier */
-import React, { FC, useEffect } from 'react';
+import React, { FC, useEffect, useState } from 'react';
+import { Request } from './Request';
+import { Button } from './Button';
 import { Headers } from './Headers';
 import { Variables } from './Variables';
-import { docQuery } from '../../shared/docQuery';
 
-const req = { query: 'query {characters {    results {   name id     }  }}' };
 type TQuery = { query: string };
 
-interface IEditor {
+export interface IEditor {
   getQueryData: (req: TQuery) => void;
 }
 
 export const Editor: FC<IEditor> = ({ getQueryData }) => {
+  const [request, setRequest] = useState('');
   useEffect(() => {
-    getQueryData(req);
-  }, [getQueryData]);
+    getQueryData({ query: request });
+  }, [getQueryData, request]);
+  const [isActive, setIsActive] = useState(false);
   return (
-    <form className="bg-BGcolor w-1/2 rounded-2xl p-2 flex flex-col">
-      <textarea
-        name="editor"
-        id="editor"
-        cols={30}
-        rows={10}
-        className="bg-BGcolor w-full p-2 rounded-2xl border-textColor text-xs md:text-base"
-      ></textarea>
-      <div className="flex justify-evenly my-4">
-        <Headers />
-        <Variables />
+    <form className="bg-BGColorWhite w-1/2 rounded-2xl p-2 flex flex-col">
+      <div className="flex my-1">
+        <div className="w-full flex flex-grow">
+          <Request height="65vh" setRequest={setRequest} />
+        </div>
+
+        <Button request={request} getQueryData={getQueryData} />
+      </div>
+      <div className={isActive ? 'flex flex-row justify-evenly' : 'flex flex-row justify-evenly'}>
+        <Headers isActive={isActive} setIsActive={setIsActive} />
+        <Variables isActive={isActive} setIsActive={setIsActive} />
+      </div>
+      <div className={isActive ? 'flex' : 'hidden'}>
+        <Request height="20vh" />
       </div>
     </form>
   );

@@ -13,7 +13,7 @@ interface INavItemProps {
 export const NavItem: FC<INavItemProps> = ({ title, to, className, handler }) => {
   return (
     <TranslationProvider translations={translations.header}>
-      <li className='flex items-center'>
+      <li className="flex items-center">
         <Link className={className} to={to} onClick={handler}>
           <Translation path={title} />
         </Link>

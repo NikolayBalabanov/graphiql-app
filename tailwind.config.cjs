@@ -14,6 +14,7 @@ module.exports = {
         BGcolor: '#f4f7ee',
         BGcolor1: '#E6EDDA',
         BGcolor2: '#c3d4a7',
+        BGColorWhite: '#fff',
         bgModal: 'rgba(20, 19, 19, 0.8);',
       },
     },

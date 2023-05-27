@@ -3,8 +3,6 @@ import { DocsBtn } from './DocsBtn';
 import { DocsTabsList } from './tabs/DocsTabsList';
 import { TTabsType } from './DocsContainer';
 
-//
-
 interface IDocsHeader {
   onClose: () => void;
   tabs: TTabsType[];

@@ -9,3 +9,6 @@
     @apply px-3 py-1 bg-btnBGHover rounded-md text-textColorHover;
   }
 }
+.cm-theme-light{
+  width: 90%;
+}

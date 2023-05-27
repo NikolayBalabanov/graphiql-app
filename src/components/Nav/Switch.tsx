@@ -4,7 +4,8 @@ export const LanguageChange = () => {
   const translation = useTranslationChange();
 
   return (
-    <select className=' md:w-20 w-10 text-xs md:text-base pl-1 pr-1'
+    <select
+      className=" md:w-20 w-10 text-xs md:text-base pl-1 pr-1"
       value={translation.lang}
       onChange={(event) => {
         translation.change(event.target.value);
