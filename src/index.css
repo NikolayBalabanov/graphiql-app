@@ -5,6 +5,9 @@
   .btn {
     @apply px-3 py-1 bg-btnBG rounded-md hover:bg-btnBGHover hover:text-textColorHover text-textColor duration-500;
   }
+  .active-btn {
+    @apply px-3 py-1 bg-btnBGHover rounded-md text-textColorHover;
+  }
 }
 .cm-theme-light{
   width: 90%;

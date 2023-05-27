@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 export default class NeverPage extends Component {
   render() {
     return (
-      <div className="containe mx-auto  md:p-10 p-3 ">
+      <div className="container mx-auto  md:p-10 p-3 ">
         <div className="relative overflow-hidden rounded-2xl flex items-center justify-center">
           <img
             className="w-full object-cover opacity-70"

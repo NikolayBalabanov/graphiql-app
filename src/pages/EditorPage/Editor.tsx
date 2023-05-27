@@ -4,7 +4,6 @@ import { Button } from './Button';
 import { Headers } from './Headers';
 import { Variables } from './Variables';
 
-// const req = { query: 'query {characters {    results {   name id     }  }}' };
 type TQuery = { query: string };
 
 export interface IEditor {

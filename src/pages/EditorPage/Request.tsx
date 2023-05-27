@@ -11,7 +11,6 @@ function Request({
 }) {
   const onChange = React.useCallback(
     (value: string) => {
-      console.log('value:', value);
       setRequest!(value);
     },
     [setRequest]
