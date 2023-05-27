@@ -1,4 +1,4 @@
-import { FetchBaseQueryError, createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react';
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react';
 import { TSchema } from '../models/schema';
 
 type TQuery = { query: string };
