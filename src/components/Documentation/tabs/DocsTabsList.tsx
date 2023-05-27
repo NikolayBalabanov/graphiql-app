@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { TabItem } from './TabItem';
-import { TTabsType } from './DocsContainer';
+import { TTabsType } from '../DocsContainer';
 
 interface IDocsTabsList {
   tabs: TTabsType[];

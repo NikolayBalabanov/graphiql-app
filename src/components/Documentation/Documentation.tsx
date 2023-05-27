@@ -1,4 +1,4 @@
-import React, { FC, MutableRefObject, Suspense, lazy, useEffect, useRef } from 'react';
+import React, { FC, MutableRefObject, Suspense, lazy } from 'react';
 import Loader from '../UI/Loader';
 
 const DocsContainer = lazy(() => import('../Documentation/DocsContainer'));
@@ -9,11 +9,6 @@ interface IDocumentation {
 }
 
 export const Documentation: FC<IDocumentation> = ({ onClose, item }) => {
-  //   const isMounted = useRef(false);
-  //   useEffect(() => {
-  //     if (isMounted.current) return;
-  //     isMounted.current = true;
-  //   }, [isMounted.current]);
   return (
     <div
       ref={item}

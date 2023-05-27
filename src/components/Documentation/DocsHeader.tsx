@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { DocsBtn } from './DocsBtn';
-import { DocsTabsList } from './DocsTabsList';
+import { DocsTabsList } from './tabs/DocsTabsList';
 import { TTabsType } from './DocsContainer';
 
 //
