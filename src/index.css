@@ -6,3 +6,6 @@
     @apply px-3 py-1 bg-btnBG rounded-md hover:bg-btnBGHover hover:text-textColorHover text-textColor duration-500;
   }
 }
+.cm-theme-light{
+  width: 90%;
+}

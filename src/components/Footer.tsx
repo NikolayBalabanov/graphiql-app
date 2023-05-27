@@ -2,7 +2,6 @@ import Logo from '../assets/rs_school.svg';
 import { TranslationProvider, Translation } from 'i18nano';
 import { translations } from '../translations';
 
-
 function Footer() {
   return (
     <TranslationProvider translations={translations.footer}>
@@ -42,12 +41,14 @@ function Footer() {
           <div className="flex items-center">
             <h3 className="text-xs md:text-base text-textColor">
               ©2023
-              <span className="md:inline hidden text-textColor"><Translation path="rights" /></span>
+              <span className="md:inline hidden text-textColor">
+                <Translation path="rights" />
+              </span>
             </h3>
           </div>
         </div>
       </footer>
-    </TranslationProvider >
+    </TranslationProvider>
   );
 }
 
