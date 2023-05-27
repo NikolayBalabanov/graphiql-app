@@ -24,7 +24,7 @@ export const Fields: FC<IFields> = ({ fields }) => {
                 <span className="font-medium">Description:</span> {field.description}
               </span>
             )}
-            {field.args.length > 0 && <Args args={field.args} />}
+            {field.args.length > 0 && <Args args={field.args} secondary />}
             <span>
               <span className="font-medium">Type:</span> {JSON.stringify(field.type, null, ' ')}
             </span>

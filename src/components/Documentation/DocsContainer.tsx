@@ -28,6 +28,7 @@ export const DocsContainer: FC<IDocsContainer> = ({ onClose }) => {
     <StyledEngineProvider injectFirst>
       <div className="p-3 flex flex-col gap-3 h-full overflow-hidden">
         <DocsHeader
+          currentTab={tab}
           tabs={data ? tabsArr : []}
           onClose={() => onClose()}
           onPickTab={(newTab: TTabsType) => setTab(newTab)}

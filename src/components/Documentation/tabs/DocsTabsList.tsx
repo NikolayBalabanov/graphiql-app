@@ -5,13 +5,14 @@ import { TTabsType } from '../DocsContainer';
 interface IDocsTabsList {
   tabs: TTabsType[];
   onTabClick: (tab: TTabsType) => void;
+  current: TTabsType;
 }
 
-export const DocsTabsList: FC<IDocsTabsList> = ({ onTabClick, tabs }) => {
+export const DocsTabsList: FC<IDocsTabsList> = ({ onTabClick, tabs, current }) => {
   return (
-    <ul className="flex gap-5 md:mr-5 mr-3 list-none">
+    <ul className="flex md:gap-5 gap-2 md:mr-5 mr-3 list-none">
       {tabs.map((tab) => (
-        <TabItem key={tab} name={tab} onClick={() => onTabClick(tab)} />
+        <TabItem active={current === tab} key={tab} name={tab} onClick={() => onTabClick(tab)} />
       ))}
     </ul>
   );

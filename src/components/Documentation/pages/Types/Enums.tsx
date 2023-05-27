@@ -11,10 +11,19 @@ export const Enums: FC<IEnums> = ({ enumValues }) => {
       <h3>
         <b>EnumValues:</b>
       </h3>
-      <div>
-        <span>Name: {enumValues.name}</span>
-        {enumValues.description && <span>Description: {enumValues.description}</span>}
-        <span>isDeprecated: {enumValues.isDeprecated ? 'true' : 'false'}</span>
+      <div className="pl-2 flex flex-col gap-2">
+        <span>
+          <span className="font-medium">Name:</span> {enumValues.name}
+        </span>
+        {enumValues.description && (
+          <span>
+            <span className="font-medium">Description:</span> {enumValues.description}
+          </span>
+        )}
+        <span>
+          <span className="font-medium">isDeprecated:</span>{' '}
+          {enumValues.isDeprecated ? 'true' : 'false'}
+        </span>
       </div>
     </>
   ) : (

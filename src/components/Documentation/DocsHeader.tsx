@@ -9,12 +9,17 @@ interface IDocsHeader {
   onClose: () => void;
   tabs: TTabsType[];
   onPickTab: (newTab: TTabsType) => void;
+  currentTab: TTabsType;
 }
 
-export const DocsHeader: FC<IDocsHeader> = ({ onClose, tabs, onPickTab }) => {
+export const DocsHeader: FC<IDocsHeader> = ({ onClose, tabs, onPickTab, currentTab }) => {
   return (
     <header className="flex justify-between">
-      <DocsTabsList tabs={tabs} onTabClick={(data: TTabsType) => onPickTab(data)} />
+      <DocsTabsList
+        current={currentTab}
+        tabs={tabs}
+        onTabClick={(data: TTabsType) => onPickTab(data)}
+      />
       <DocsBtn onClick={onClose} isClose />
     </header>
   );
