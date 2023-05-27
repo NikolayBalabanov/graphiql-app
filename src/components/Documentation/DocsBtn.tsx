@@ -11,7 +11,7 @@ export const DocsBtn: FC<IDocsBtn> = ({ onClick, isClose, disabled = false }) =>
   return (
     <button
       key="burgerBtn"
-      className="px-3 py-2 rounded-md text-textColor text-xs md:text-base"
+      className="px-3 py-2 rounded-md text-textColor text-xs md:text-base hover:text-black hover:scale-110 transition-all"
       onClick={onClick}
       disabled={disabled}
     >

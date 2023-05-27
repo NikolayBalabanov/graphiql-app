@@ -5,6 +5,7 @@ import { DocsHeader } from './DocsHeader';
 import Loader from '../UI/Loader';
 import { DocsTabPage } from './DocsTabPage';
 import { StyledEngineProvider } from '@mui/material/styles';
+import { ErrorPage } from './pages/ErrorPage';
 
 interface IDocsContainer {
   onClose: () => void;
@@ -35,7 +36,7 @@ export const DocsContainer: FC<IDocsContainer> = ({ onClose }) => {
         />
         <div className="bg-BGcolor overflow-auto">
           {isLoading && <Loader />}
-          {isError && <div>Oops! Error while fetching documentation</div>}
+          {isError && <ErrorPage />}
           {data && (
             <DocsTabPage
               tabName={tab}
