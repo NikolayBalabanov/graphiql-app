@@ -5,11 +5,15 @@ export const Variables = ({
   setIsActive,
 }: {
   isActive: boolean;
-  setIsActive: React.Dispatch<React.SetStateAction<boolean>>;
+  setIsActive: () => void;
 }) => {
   return (
     <div className="text-textColor text-xs md:text-base">
-      <button type="button" onClick={() => setIsActive(!isActive)}>
+      <button
+        className={isActive ? 'active-btn' : 'btn'}
+        type="button"
+        onClick={() => setIsActive()}
+      >
         Variables
       </button>
     </div>

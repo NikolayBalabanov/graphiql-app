@@ -10,7 +10,7 @@ export const rootAPI = createApi({
   }),
   tagTypes: ['Data', 'Doc'],
   endpoints: (build) => ({
-    getApiQuery: build.mutation<unknown, TQuery>({
+    getApiQuery: build.mutation<void, TQuery>({
       query: (requestBody) => ({
         url: '',
         method: 'POST',

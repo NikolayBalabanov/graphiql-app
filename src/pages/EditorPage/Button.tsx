@@ -1,13 +1,12 @@
 import React from 'react';
-import { IEditor } from './Editor';
-interface IBtn extends IEditor {
-  request: string;
+interface IBtn {
+  callBack: () => void;
 }
 
-export const Button = ({ getQueryData, request }: IBtn) => {
+export const Button = ({ callBack }: IBtn) => {
   return (
     <button
-      onClick={() => getQueryData({ query: request })}
+      onClick={() => callBack()}
       type="button"
       className="bg-btnBGHover rounded w-[2em] h-[2em] flex justify-center items-center cursor-pointer"
     >
