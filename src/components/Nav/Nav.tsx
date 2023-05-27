@@ -11,13 +11,29 @@ export interface IPage {
 
 const loggedRoutes = [
   <NavItem key={'about'} className="btn align-middle text-xs md:text-base" title="about" to="/" />,
-  <NavItem key={'editor'} className="btn align-middle text-xs md:text-base" title="editor" to="/editor" />,
-  <NavItem key={'signOut'} className="btn align-middle text-xs md:text-base" title="signOut" to="" handler={() => logout()} />,
+  <NavItem
+    key={'editor'}
+    className="btn align-middle text-xs md:text-base"
+    title="editor"
+    to="/editor"
+  />,
+  <NavItem
+    key={'signOut'}
+    className="btn align-middle text-xs md:text-base"
+    title="signOut"
+    to=""
+    handler={() => logout()}
+  />,
 ];
 
 const unLoggedRoutes = [
   <NavItem key={'about'} className="btn align-middle text-xs md:text-base" title="about" to="/" />,
-  <NavItem key={'signIn'} className="btn align-middle text-xs md:text-base" title="signIn" to="/registration" />,
+  <NavItem
+    key={'signIn'}
+    className="btn align-middle text-xs md:text-base"
+    title="signIn"
+    to="/registration"
+  />,
 ];
 
 export const Nav: FC = () => {
