@@ -33,7 +33,7 @@ export const SignInUp = () => {
   const onSubmit: SubmitHandler<FormFields> = (data) => {
     const { email, password, name } = data;
     if (isSignUp) {
-      registerWithEmailAndPassword(email, password).then((user: { user: { uid: string } }) => {
+      registerWithEmailAndPassword(email, password).then((user) => {
         if (user) {
           registerUser(user.user.uid, email, name!);
         }
