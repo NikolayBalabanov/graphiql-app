@@ -18,13 +18,13 @@ type FormFields = {
   name?: string;
 };
 
-export const SignInUp = () => {
+export const SignInUp = ({ type }: { type: boolean }) => {
   const [user] = useAuthState(auth);
   const [logInWithEmailAndPassword, , logLoading, logError] = useSignInWithEmailAndPassword(auth);
   const [registerWithEmailAndPassword, , regLoading, regError] =
     useCreateUserWithEmailAndPassword(auth);
   const navigate = useNavigate();
-  const [isSignUp, setIsSignUp] = useState(false);
+  const [isSignUp, setIsSignUp] = useState(type);
   const {
     register,
     handleSubmit,

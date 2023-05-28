@@ -1,5 +1,6 @@
 export const ROUTES = {
   welcomePage: '/',
-  singInPage: '/registration',
+  singInPage: '/signIn',
+  singUpPage: '/signUp',
   editorPage: '/editor',
 };

@@ -1,12 +1,12 @@
 import React from 'react';
 import { SignInUp } from '../components/signInUp/SignInUp';
 
-function SingIn() {
+function SingUp() {
   return (
     <div className="flex justify-center h-screen">
-      <SignInUp type={false} />
+      <SignInUp type={true} />
     </div>
   );
 }
 
-export default SingIn;
+export default SingUp;

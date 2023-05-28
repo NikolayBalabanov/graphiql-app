@@ -1,6 +1,7 @@
 {
         "about": "About",
-             "editor": "Editor",
+             "editor": "Go to Main Page",
                      "signIn": "Sing In",
-                     "signOut": "Sing Out"
+                     "signOut": "Sing Out",
+                     "signUp": "Sing Up"
 }

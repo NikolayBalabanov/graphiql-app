@@ -6,6 +6,7 @@ import { AccountStatusValidator } from '../HOCS/AccountStatusValidator';
 import { ROUTES } from '../shared/routeConstants';
 
 const SingInPage = lazy(() => import('../pages/SingIn'));
+const SingUpPage = lazy(() => import('../pages/SingUp'));
 const WelcomePage = lazy(() => import('../pages/WelcomePage'));
 const EditorPage = lazy(() => import('../pages/EditorPage'));
 const NeverPage = lazy(() => import('../pages/NeverPage'));
@@ -24,10 +25,20 @@ const routes: RouteObject[] = [
         element: suspense(<WelcomePage />),
       },
       {
-        path: 'registration',
+        path: 'signIn',
         element: (
           <AccountStatusValidator
             protectedPage={suspense(<SingInPage />)}
+            isRegistration
+            fallBackRoute={ROUTES.editorPage}
+          />
+        ),
+      },
+      {
+        path: 'signUp',
+        element: (
+          <AccountStatusValidator
+            protectedPage={suspense(<SingUpPage />)}
             isRegistration
             fallBackRoute={ROUTES.editorPage}
           />

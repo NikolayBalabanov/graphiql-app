@@ -32,7 +32,13 @@ const unLoggedRoutes = [
     key={'signIn'}
     className="btn align-middle text-xs md:text-base"
     title="signIn"
-    to="/registration"
+    to="/signIn"
+  />,
+  <NavItem
+    key={'signUp'}
+    className="btn align-middle text-xs md:text-base"
+    title="signUp"
+    to="/signUp"
   />,
 ];
 
