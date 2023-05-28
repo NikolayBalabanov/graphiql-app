@@ -7,7 +7,7 @@ import {
   useCreateUserWithEmailAndPassword,
   useSignInWithEmailAndPassword,
 } from 'react-firebase-hooks/auth';
-import { auth, registerUser, sendPasswordReset } from '../../firebase';
+import { auth, registerUser } from '../../firebase';
 import { getErrString } from '../../utils/getErrString';
 import { TranslationProvider, Translation } from 'i18nano';
 import { translations } from '../../translations';
@@ -33,7 +33,7 @@ export const SignInUp = () => {
   const onSubmit: SubmitHandler<FormFields> = (data) => {
     const { email, password, name } = data;
     if (isSignUp) {
-      registerWithEmailAndPassword(email, password).then((user) => {
+      registerWithEmailAndPassword(email, password).then((user: { user: { uid: string } }) => {
         if (user) {
           registerUser(user.user.uid, email, name!);
         }
@@ -123,11 +123,6 @@ export const SignInUp = () => {
           <p>
             <Translation path="registered" />
             <Button type="button" text="signIn" onClick={() => setIsSignUp(false)}></Button>
-            {/* <Button
-            type="button"
-            text="signIn"
-            onClick={() => sendPasswordReset('nikola.balabanov93@gmail.com')}
-          ></Button> */}
           </p>
         )}
       </form>

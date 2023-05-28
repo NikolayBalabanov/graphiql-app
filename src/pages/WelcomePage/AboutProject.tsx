@@ -1,14 +1,27 @@
 import React from 'react';
-const data = ['Welcome page', 'User auth', 'GraphiQL page']
+import { TranslationProvider, Translation } from 'i18nano';
+import { translations } from '../../translations';
+
+const data = ['welcome', 'userAuth', 'graphiQL'];
 
 export const AboutProject = () => {
   return (
-    <div className='flex  flex-col  items-center text-lg text-center'>
-        <h1 className='font-bold text-3xl my-5'>Application is a playground for graphQL requests to rickandmortyapi</h1>
-        <h5 className='font-semibold text-2xl mb-3'>App contains:</h5>
+    <TranslationProvider translations={translations.about}>
+      <div className="flex  flex-col  items-center text-lg text-center">
+        <h1 className="font-bold text-3xl my-5">
+          <Translation path="headerProject" />
+        </h1>
+        <h5 className="font-semibold text-2xl mb-3">
+          <Translation path="textProject" />
+        </h5>
         <ul>
-            {data.map(el => <li>{el}</li>)}
+          {data.map((el) => (
+            <li key={el}>
+              <Translation path={el} />
+            </li>
+          ))}
         </ul>
-    </div>
-  )
-}
+      </div>
+    </TranslationProvider>
+  );
+};

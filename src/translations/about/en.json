@@ -1,0 +1,19 @@
+{
+    "headerCourse": "RS School is free-of-charge and community-based education program conducted by The Rolling Scopes developer community since 2013.",
+    "course1": "Everyone can study at RS School, regardless of age, professional employment, or place of residence.",
+    "course2": "The mentors and trainers of school are front-end and javascript developers from different companies and countries.",
+    "headerPrinciples": "RS School's principles",
+    "textPrinciples": "Open Source Philosophy and “Teach It Forward”",
+    "coursesHeader": "RS School's Courses",
+    "names": ["Viktoryia Karalenia", "Nikolay Balabanov", "Vladislav Kozlov"],
+    "viktoria": "Viktoryia Karalenia",
+    "nikolay": "Nikolay Balabanov",
+    "vladislav": "Vladislav Kozlov",
+    "dev": "Frontend Developer",
+    "teamlead": "Team Lead",
+    "headerProject": "Application is a playground for graphQL requests to rickandmortyapi",
+    "textProject": "App contains:",
+    "welcome": "Welcome page",
+    "userAuth": "User auth",
+    "graphiQL": "GraphiQL page"
+}
