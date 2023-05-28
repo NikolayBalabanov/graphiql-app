@@ -1,9 +1,10 @@
 import React from 'react';
+import loaderImg from '../../assets/pngegg.png';
 
 function Loader() {
   return (
     <div className="mt-20 p-4 flex items-center justify-center">
-      <h2 className="text-8xl animate-bounce">🎥</h2>
+      <img className="w-20 h-20 animate-bounce" src={loaderImg} alt="Loading..." />
     </div>
   );
 }
