@@ -28,7 +28,7 @@ export const Editor: FC<IEditor> = ({ getQueryData }) => {
     const reqBody = {
       query: query,
       headers: headers,
-      variables: variables,
+      variables: JSON.parse(variables || '{}'),
     };
     getQueryData(reqBody);
   };
